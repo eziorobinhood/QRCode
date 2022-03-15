@@ -1,0 +1,26 @@
+<html>
+    <head>     
+    </head>
+    <body>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.js"></script>
+        <script>
+            const div = document.createElement('div');
+            div.setAttribute("id","qrcode");
+            document.body.appendChild(div);
+
+            div.addEventListener("load", generateQRCode(window.location.href));
+
+
+            var qrcode = undefined;
+            function generateQRCode(value) {
+                if (qrcode === undefined) {
+                    qrcode = new QRCode(document.getElementById('qrcode'), value);
+                } else {
+                    qrcode.clear();
+                    qrcode.makeCode(value);
+                }
+            }
+        
+        </script>
+    </body>
+</html>
